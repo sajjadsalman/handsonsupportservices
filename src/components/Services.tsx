@@ -32,6 +32,20 @@ const Services = () => {
     },
   ];
 
+  const handleBooking = (serviceName: string) => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+      
+      // Dispatch custom event to pre-fill the form
+      setTimeout(() => {
+        window.dispatchEvent(new CustomEvent("prefillBooking", { 
+          detail: { service: serviceName } 
+        }));
+      }, 500);
+    }
+  };
+
   return (
     <section id="services" className="py-32 relative">
       {/* Background Glow */}
@@ -49,6 +63,13 @@ const Services = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Ready to dive into a world of delightful support? Our customer service team is here 
             to sprinkle some magic on your day, ensuring your experience is nothing short of fantastic!
+          </p>
+        </div>
+
+        {/* Booking Info */}
+        <div className="text-center mb-12">
+          <p className="text-muted-foreground bg-secondary/50 inline-block px-6 py-3 rounded-full border border-border/50">
+            📩 Send us a message to book and our team will reach out to you directly
           </p>
         </div>
 
@@ -77,7 +98,12 @@ const Services = () => {
                 <p className="text-xl font-bold text-primary mb-4">
                   {service.price}
                 </p>
-                <Button variant="hero" size="default" className="w-full">
+                <Button 
+                  variant="hero" 
+                  size="default" 
+                  className="w-full"
+                  onClick={() => handleBooking(service.title)}
+                >
                   Book
                 </Button>
               </div>
