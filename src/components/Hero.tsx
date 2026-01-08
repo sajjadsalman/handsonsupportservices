@@ -5,25 +5,26 @@ import heroImage from "@/assets/hero-caregiver.jpg";
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
+      {/* Background Image with Softer Overlay */}
       <div className="absolute inset-0">
         <img 
           src={heroImage} 
           alt="Compassionate caregiver with patient" 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/70" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+        {/* Lighter overlay to show more of the image */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
       </div>
       
-      {/* Gradient Glow */}
-      <div className="absolute inset-0 bg-glow opacity-60" />
+      {/* Subtle Glow */}
+      <div className="absolute inset-0 bg-glow opacity-40" />
 
       <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
         <div className="max-w-3xl">
           {/* Badge */}
           <div className="animate-fade-up">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border/50 text-sm text-muted-foreground mb-8">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/60 backdrop-blur-sm border border-border/50 text-sm text-foreground/80 mb-8">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               Home Healthcare Services
             </span>
@@ -31,13 +32,13 @@ const Hero = () => {
 
           {/* Main Headline */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight mb-6 animate-fade-up-delay-1">
-            <span className="text-gradient">HandsOn</span>
+            <span className="text-foreground">HandsOn</span>
             <br />
-            <span className="text-gradient-gold">Support Services</span>
+            <span className="text-gradient-accent">Support Services</span>
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-12 animate-fade-up-delay-2 leading-relaxed">
+          <p className="text-lg md:text-xl text-foreground/70 max-w-xl mb-12 animate-fade-up-delay-2 leading-relaxed">
             Whether you require short-term assistance or ongoing support, we are 
             committed to delivering excellence in every home we serve.
           </p>
@@ -57,8 +58,8 @@ const Hero = () => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-fade-up-delay-3">
-        <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2">
-          <div className="w-1 h-2 rounded-full bg-muted-foreground/50 animate-bounce" />
+        <div className="w-6 h-10 rounded-full border-2 border-foreground/20 flex items-start justify-center p-2">
+          <div className="w-1 h-2 rounded-full bg-foreground/40 animate-bounce" />
         </div>
       </div>
     </section>
