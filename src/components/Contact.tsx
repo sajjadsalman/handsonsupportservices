@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, Send, CheckCircle } from "lucide-react";
+import { Mail, Phone, Send, CheckCircle, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -37,7 +39,7 @@ const Contact = () => {
     };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
@@ -49,17 +51,37 @@ const Contact = () => {
       return;
     }
 
-    // Simulate form submission
-    setIsSubmitted(true);
-    toast({
-      title: "Message sent successfully!",
-      description: "Our team will get back to you shortly.",
-    });
-    
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" });
-    }, 3000);
+    setIsLoading(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke("send-contact-email", {
+        body: formData,
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      setIsSubmitted(true);
+      toast({
+        title: "Message sent successfully!",
+        description: "Our team will get back to you shortly.",
+      });
+      
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" });
+      }, 3000);
+    } catch (error: any) {
+      console.error("Error sending message:", error);
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -207,9 +229,14 @@ const Contact = () => {
                   variant="hero"
                   size="lg"
                   className="w-full"
-                  disabled={isSubmitted}
+                  disabled={isSubmitted || isLoading}
                 >
-                  {isSubmitted ? (
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      Sending...
+                    </>
+                  ) : isSubmitted ? (
                     <>
                       <CheckCircle className="w-5 h-5" />
                       Message Sent!
