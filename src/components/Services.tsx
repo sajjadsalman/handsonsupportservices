@@ -39,10 +39,10 @@ const Services = () => {
   ];
 
   const packages = [
-    { name: "PSW Services", price: "$99.00", image: pswPackage },
-    { name: "Occupational Therapy Services", price: "$149.00", image: otPackage },
-    { name: "Advanced Service", price: "$199.00", image: advancedPackage },
-    { name: "Advanced+ Service", price: "$249.00", image: advancedPlusPackage },
+    { name: "PSW Services", image: pswPackage },
+    { name: "Occupational Therapy Services", image: otPackage },
+    { name: "Advanced Service", image: advancedPackage },
+    { name: "Advanced+ Service", image: advancedPlusPackage },
   ];
 
   const scrollToContact = () => {
@@ -194,8 +194,7 @@ const Services = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
                 </div>
                 <div className="p-5 text-center flex flex-col flex-1">
-                  <h4 className="text-base font-semibold text-foreground mb-2 min-h-[48px] flex items-center justify-center">{pkg.name}</h4>
-                  <p className="text-2xl font-bold text-primary mb-4">{pkg.price}</p>
+                  <h4 className="text-base font-semibold text-foreground mb-4 min-h-[48px] flex items-center justify-center">{pkg.name}</h4>
                   <button
                     onClick={scrollToContact}
                     className="w-full py-3 px-4 bg-primary text-primary-foreground rounded-xl font-medium hover:bg-primary/90 transition-colors duration-300 mt-auto"
