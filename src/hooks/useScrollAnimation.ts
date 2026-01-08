@@ -16,7 +16,7 @@ export const useScrollAnimation = () => {
     });
 
     const elements = document.querySelectorAll(
-      ".animate-on-scroll, .animate-on-scroll-left, .animate-on-scroll-right, .animate-on-scroll-scale"
+      ".animate-on-scroll, .animate-on-scroll-left, .animate-on-scroll-right, .animate-on-scroll-scale, .animate-on-scroll-rotate, .animate-on-scroll-blur"
     );
 
     elements.forEach((el) => observer.observe(el));
