@@ -22,17 +22,17 @@ const buttonVariants = cva(
         link: 
           "text-primary underline-offset-4 hover:underline",
         hero:
-          "bg-primary text-primary-foreground font-semibold shadow-lg hover:shadow-xl hover:scale-105 hover:bg-primary/90",
+          "bg-primary text-primary-foreground font-semibold shadow-md hover:shadow-lg hover:scale-105 hover:bg-primary/90",
         heroOutline:
-          "border border-foreground/20 bg-transparent text-foreground font-medium hover:bg-foreground/5 hover:border-foreground/40",
+          "border-2 border-primary/30 bg-transparent text-foreground font-medium hover:bg-primary/5 hover:border-primary/50",
         glass:
           "bg-foreground/10 backdrop-blur-md border border-foreground/10 text-foreground hover:bg-foreground/15",
       },
       size: {
         default: "h-11 px-6 py-2",
         sm: "h-9 px-4 text-xs",
-        lg: "h-14 px-10 text-base",
-        xl: "h-16 px-12 text-lg",
+        lg: "h-12 px-8 text-base",
+        xl: "h-14 px-10 text-lg",
         icon: "h-10 w-10",
       },
     },
