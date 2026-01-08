@@ -1,4 +1,5 @@
 import { Heart, Handshake, UserCheck } from "lucide-react";
+import teamImage from "@/assets/healthcare-team.jpg";
 
 const About = () => {
   const values = [
@@ -36,9 +37,10 @@ const About = () => {
           </h2>
         </div>
 
-        {/* Main Content */}
-        <div className="max-w-4xl mx-auto mb-24">
-          <div className="space-y-6 text-center">
+        {/* Main Content with Image */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto mb-24">
+          {/* Text Content */}
+          <div className="space-y-6">
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
               We strive to create a home environment filled with safety, comfort, and support. 
               Through our skilled PSW services, we assist with daily activities while empowering 
@@ -55,6 +57,21 @@ const About = () => {
               understand their unique needs. This ensures care that feels natural, comfortable, 
               and truly meaningful.
             </p>
+          </div>
+
+          {/* Team Image */}
+          <div className="relative">
+            <div className="relative rounded-3xl overflow-hidden">
+              <img 
+                src={teamImage} 
+                alt="Our healthcare team" 
+                className="w-full h-80 lg:h-96 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+            </div>
+            {/* Decorative border */}
+            <div className="absolute -inset-4 rounded-3xl border border-primary/20 -z-10" />
+            <div className="absolute -inset-8 rounded-3xl border border-primary/10 -z-20" />
           </div>
         </div>
 
