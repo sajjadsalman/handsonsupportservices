@@ -1,6 +1,10 @@
 import { Heart, Brain } from "lucide-react";
 import pswImage from "@/assets/psw-services.jpg";
 import otImage from "@/assets/occupational-therapy.jpg";
+import pswPackage from "@/assets/psw-package.jpg";
+import otPackage from "@/assets/ot-package.jpg";
+import advancedPackage from "@/assets/advanced-package.jpg";
+import advancedPlusPackage from "@/assets/advanced-plus-package.jpg";
 
 const Services = () => {
   const pswServices = [
@@ -35,10 +39,10 @@ const Services = () => {
   ];
 
   const packages = [
-    { name: "PSW Services", price: "$99.00" },
-    { name: "Occupational Therapy Services", price: "$149.00" },
-    { name: "Advanced Service", price: "$199.00" },
-    { name: "Advanced+ Service", price: "$249.00" },
+    { name: "PSW Services", price: "$99.00", image: pswPackage },
+    { name: "Occupational Therapy Services", price: "$149.00", image: otPackage },
+    { name: "Advanced Service", price: "$199.00", image: advancedPackage },
+    { name: "Advanced+ Service", price: "$249.00", image: advancedPlusPackage },
   ];
 
   const scrollToContact = () => {
@@ -165,25 +169,40 @@ const Services = () => {
             <h3 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">
               Our Service Packages
             </h3>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              To book a service, fill out the form below and someone from our team will reach out to you.
-            </p>
+            <div className="bg-primary/10 border border-primary/20 rounded-2xl p-6 max-w-2xl mx-auto">
+              <p className="text-lg font-medium text-foreground mb-2">
+                Ready to Book a Service?
+              </p>
+              <p className="text-muted-foreground">
+                Fill out the contact form below and someone from our team will reach out to you to schedule your care.
+              </p>
+            </div>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {packages.map((pkg, index) => (
               <div
                 key={index}
-                className="card-glass rounded-2xl p-6 text-center hover-lift group"
+                className="card-glass rounded-2xl overflow-hidden hover-lift group flex flex-col"
               >
-                <h4 className="text-lg font-semibold text-foreground mb-2">{pkg.name}</h4>
-                <p className="text-3xl font-bold text-primary mb-4">{pkg.price}</p>
-                <button
-                  onClick={scrollToContact}
-                  className="w-full py-3 px-4 bg-primary text-primary-foreground rounded-xl font-medium hover:bg-primary/90 transition-colors duration-300"
-                >
-                  Book
-                </button>
+                <div className="relative h-40 overflow-hidden">
+                  <img 
+                    src={pkg.image} 
+                    alt={pkg.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
+                </div>
+                <div className="p-5 text-center flex flex-col flex-1">
+                  <h4 className="text-base font-semibold text-foreground mb-2 min-h-[48px] flex items-center justify-center">{pkg.name}</h4>
+                  <p className="text-2xl font-bold text-primary mb-4">{pkg.price}</p>
+                  <button
+                    onClick={scrollToContact}
+                    className="w-full py-3 px-4 bg-primary text-primary-foreground rounded-xl font-medium hover:bg-primary/90 transition-colors duration-300 mt-auto"
+                  >
+                    Book
+                  </button>
+                </div>
               </div>
             ))}
           </div>
