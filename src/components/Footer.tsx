@@ -4,9 +4,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 border-t border-border/30">
+    <footer className="py-12 border-t border-border">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-12 mb-12">
+        <div className="grid md:grid-cols-3 gap-10 mb-10">
           {/* Brand */}
           <div>
             <a href="#" className="inline-block mb-4">
@@ -23,7 +23,7 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h4 className="text-foreground font-medium mb-4">Quick Links</h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               {["Services", "About Us", "Contact"].map((link) => (
                 <li key={link}>
                   <a
@@ -40,7 +40,7 @@ const Footer = () => {
           {/* Contact */}
           <div>
             <h4 className="text-foreground font-medium mb-4">Contact</h4>
-            <ul className="space-y-3 text-sm text-muted-foreground">
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <a
                   href="mailto:info@handsonsupportservices.com"
@@ -62,7 +62,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border/30 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
             © {currentYear} HandsOn Support Services. All rights reserved.
           </p>
