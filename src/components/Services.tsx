@@ -34,6 +34,13 @@ const Services = () => {
     "MVA Support Services",
   ];
 
+  const packages = [
+    { name: "PSW Services", price: "$99.00" },
+    { name: "Occupational Therapy Services", price: "$149.00" },
+    { name: "Advanced Service", price: "$199.00" },
+    { name: "Advanced+ Service", price: "$249.00" },
+  ];
+
   const scrollToContact = () => {
     const element = document.getElementById("contact");
     if (element) {
@@ -149,6 +156,36 @@ const Services = () => {
                 Book this service →
               </button>
             </div>
+          </div>
+        </div>
+
+        {/* Pricing Packages */}
+        <div className="mt-20 animate-on-scroll">
+          <div className="text-center mb-10">
+            <h3 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">
+              Our Service Packages
+            </h3>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              To book a service, fill out the form below and someone from our team will reach out to you.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {packages.map((pkg, index) => (
+              <div
+                key={index}
+                className="card-glass rounded-2xl p-6 text-center hover-lift group"
+              >
+                <h4 className="text-lg font-semibold text-foreground mb-2">{pkg.name}</h4>
+                <p className="text-3xl font-bold text-primary mb-4">{pkg.price}</p>
+                <button
+                  onClick={scrollToContact}
+                  className="w-full py-3 px-4 bg-primary text-primary-foreground rounded-xl font-medium hover:bg-primary/90 transition-colors duration-300"
+                >
+                  Book
+                </button>
+              </div>
+            ))}
           </div>
         </div>
       </div>
