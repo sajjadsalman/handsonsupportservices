@@ -29,49 +29,46 @@ const Hero = () => {
 
       <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
         <div className="max-w-3xl">
-          {/* Text backdrop for better readability */}
-          <div className="bg-background/60 backdrop-blur-sm rounded-3xl p-8 md:p-10">
-            {/* Badge */}
-            <div className="animate-fade-up">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 border border-primary/30 text-sm text-primary font-medium mb-8 shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                Home Healthcare Services
-              </span>
-            </div>
+          {/* Badge */}
+          <div className="animate-fade-up">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/80 backdrop-blur-sm border border-primary/30 text-sm text-primary font-medium mb-8 shadow-lg">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              Home Healthcare Services
+            </span>
+          </div>
 
-            {/* Main Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 animate-fade-up-delay-1 drop-shadow-sm">
-              <span className="text-foreground">HandsOn</span>
-              <br />
-              <span className="text-gradient-accent">Support Services</span>
-            </h1>
+          {/* Main Headline */}
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 animate-fade-up-delay-1" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.5), 0 0 20px rgba(255,255,255,0.3)' }}>
+            <span className="text-foreground">HandsOn</span>
+            <br />
+            <span className="text-gradient-accent">Support Services</span>
+          </h1>
 
-            {/* Subheadline */}
-            <p className="text-lg md:text-xl text-foreground/80 max-w-xl mb-10 animate-fade-up-delay-2 leading-relaxed">
-              Whether you require short-term assistance or ongoing support, we are 
-              committed to delivering excellence in every home we serve.
-            </p>
+          {/* Subheadline */}
+          <p className="text-lg md:text-xl text-foreground font-medium max-w-xl mb-10 animate-fade-up-delay-2 leading-relaxed" style={{ textShadow: '1px 1px 6px rgba(0,0,0,0.4), 0 0 12px rgba(255,255,255,0.2)' }}>
+            Whether you require short-term assistance or ongoing support, we are 
+            committed to delivering excellence in every home we serve.
+          </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-start gap-4 animate-fade-up-delay-3">
-              <Button 
-                variant="hero" 
-                size="lg" 
-                className="group shadow-lg"
-                onClick={() => scrollToSection("services")}
-              >
-                Explore Our Services
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button 
-                variant="heroOutline" 
-                size="lg"
-                className="shadow-md"
-                onClick={() => scrollToSection("contact")}
-              >
-                Contact Us
-              </Button>
-            </div>
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-start gap-4 animate-fade-up-delay-3">
+            <Button 
+              variant="hero" 
+              size="lg" 
+              className="group shadow-xl"
+              onClick={() => scrollToSection("services")}
+            >
+              Explore Our Services
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button 
+              variant="heroOutline" 
+              size="lg"
+              className="shadow-xl bg-background/70 backdrop-blur-sm"
+              onClick={() => scrollToSection("contact")}
+            >
+              Contact Us
+            </Button>
           </div>
         </div>
       </div>
