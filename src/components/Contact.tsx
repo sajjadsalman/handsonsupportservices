@@ -12,6 +12,7 @@ const Contact = () => {
     firstName: "",
     lastName: "",
     email: "",
+    phone: "",
     message: "",
   });
 
@@ -57,7 +58,7 @@ const Contact = () => {
     
     setTimeout(() => {
       setIsSubmitted(false);
-      setFormData({ firstName: "", lastName: "", email: "", message: "" });
+      setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" });
     }, 3000);
   };
 
@@ -162,20 +163,37 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="mb-6">
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Email <span className="text-primary">*</span>
-                  </label>
-                  <Input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="john@example.com"
-                    className="bg-secondary/50 border-border/50 focus:border-primary rounded-xl h-12"
-                  />
+                <div className="grid sm:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                      Email <span className="text-primary">*</span>
+                    </label>
+                    <Input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      placeholder="john@example.com"
+                      className="bg-secondary/50 border-border/50 focus:border-primary rounded-xl h-12"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+                      Phone Number <span className="text-primary">*</span>
+                    </label>
+                    <Input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      placeholder="(437) 555-0123"
+                      className="bg-secondary/50 border-border/50 focus:border-primary rounded-xl h-12"
+                    />
+                  </div>
                 </div>
 
                 <div className="mb-8">
