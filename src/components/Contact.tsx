@@ -67,7 +67,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-32 relative">
+    <section id="contact" className="py-20 relative">
       {/* Background Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-glow opacity-50" />
 
