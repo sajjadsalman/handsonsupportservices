@@ -14,10 +14,18 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   const navLinks = [
-    { name: "Services", href: "#services" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
+    { name: "Services", href: "services" },
+    { name: "About", href: "about" },
+    { name: "Contact", href: "contact" },
   ];
 
   return (
@@ -31,28 +39,35 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
+          <button 
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="flex items-center gap-2 group"
+          >
             <span className="text-xl font-semibold text-foreground tracking-tight">
               HandsOn<span className="text-primary">Support</span>
             </span>
-          </a>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
-              <a
+              <button
                 key={link.name}
-                href={link.href}
+                onClick={() => scrollToSection(link.href)}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 link-underline"
               >
                 {link.name}
-              </a>
+              </button>
             ))}
           </div>
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="hero" size="default">
+            <Button 
+              variant="hero" 
+              size="default"
+              onClick={() => scrollToSection("contact")}
+            >
               Get Started
             </Button>
           </div>
@@ -71,16 +86,19 @@ const Navbar = () => {
           <div className="md:hidden absolute top-20 left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border animate-fade-in">
             <div className="flex flex-col items-center gap-6 py-8">
               {navLinks.map((link) => (
-                <a
+                <button
                   key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={() => scrollToSection(link.href)}
                   className="text-lg text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {link.name}
-                </a>
+                </button>
               ))}
-              <Button variant="hero" size="default">
+              <Button 
+                variant="hero" 
+                size="default"
+                onClick={() => scrollToSection("contact")}
+              >
                 Get Started
               </Button>
             </div>
