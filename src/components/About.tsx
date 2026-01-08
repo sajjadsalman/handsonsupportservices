@@ -21,83 +21,104 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 relative overflow-hidden">
-      {/* Decorative Elements */}
-      <div className="absolute top-1/2 -translate-y-1/2 -left-40 w-80 h-80 rounded-full bg-primary/5 blur-3xl" />
-      <div className="absolute top-1/2 -translate-y-1/2 -right-40 w-80 h-80 rounded-full bg-primary/5 blur-3xl" />
-
+    <section id="about" className="py-20 relative overflow-hidden bg-card/50">
       <div className="container mx-auto px-6 relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-12 animate-on-scroll">
-          <span className="text-primary text-sm font-medium tracking-wider uppercase mb-4 block">
-            About Us
-          </span>
-          <h2 className="text-4xl md:text-5xl font-semibold text-foreground mb-4">
-            Get to Know Us
-          </h2>
-        </div>
-
-        {/* Main Content with Image */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto mb-16">
-          {/* Text Content */}
-          <div className="space-y-6 animate-on-scroll-left">
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              We strive to create a home environment filled with safety, comfort, and support. 
-              Through our skilled PSW services, we assist with daily activities while empowering 
-              individuals to regain confidence and independence.
-            </p>
-            
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              <span className="text-foreground font-medium">Compassionate, reliable care you can trust.</span> Our 
-              PSW services are dedicated to supporting individuals with dignity, respect, and personalized attention.
-            </p>
-            
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              We take a client-centered approach, working closely with clients and families to 
-              understand their unique needs, routines, preferences, and goals. This ensures care that feels 
-              natural, comfortable, and truly meaningful.
-            </p>
+        {/* Main Content - Overlapping Cards Style */}
+        <div className="max-w-6xl mx-auto">
+          {/* Header Card */}
+          <div className="text-center mb-16 animate-on-scroll">
+            <span className="text-primary text-sm font-medium tracking-wider uppercase mb-4 block">
+              About Us
+            </span>
+            <h2 className="text-4xl md:text-5xl font-semibold text-foreground">
+              Get to Know Us
+            </h2>
           </div>
 
-          {/* Team Image */}
-          <div className="relative animate-on-scroll-right">
-            <div className="relative rounded-3xl overflow-hidden shadow-lg">
-              <img 
-                src={teamImage} 
-                alt="Our healthcare team" 
-                className="w-full h-80 lg:h-96 object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent" />
-            </div>
-            {/* Decorative border */}
-            <div className="absolute -inset-3 rounded-3xl border border-primary/20 -z-10" />
-          </div>
-        </div>
-
-        {/* Values Grid */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {values.map((value, index) => (
-            <div
-              key={index}
-              className="animate-on-scroll-scale group relative"
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <div className="card-glass rounded-2xl p-6 h-full text-center hover-lift">
-                {/* Icon Container */}
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors duration-500">
-                  <value.icon className="w-7 h-7 text-primary" />
+          {/* Feature Row 1 */}
+          <div className="grid lg:grid-cols-5 gap-8 mb-8">
+            {/* Large Image Card */}
+            <div className="lg:col-span-3 animate-on-scroll-left">
+              <div className="relative h-80 lg:h-full rounded-3xl overflow-hidden group">
+                <img 
+                  src={teamImage} 
+                  alt="Our healthcare team" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-foreground/20 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <p className="text-white text-lg font-medium">
+                    Compassionate, reliable care you can trust.
+                  </p>
                 </div>
-                
-                {/* Content */}
-                <h3 className="text-lg font-semibold text-foreground mb-2">
-                  {value.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {value.description}
+              </div>
+            </div>
+
+            {/* Text Card */}
+            <div className="lg:col-span-2 animate-on-scroll-right">
+              <div className="card-glass rounded-3xl p-8 h-full flex flex-col justify-center">
+                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                  We strive to create a home environment filled with safety, comfort, and support.
+                </p>
+                <p className="text-foreground leading-relaxed">
+                  Through our skilled PSW services, we assist with daily activities while empowering 
+                  individuals to regain confidence and independence.
                 </p>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Feature Row 2 */}
+          <div className="grid lg:grid-cols-5 gap-8 mb-12">
+            {/* Quote Card */}
+            <div className="lg:col-span-2 animate-on-scroll-left">
+              <div className="bg-primary rounded-3xl p-8 h-full flex flex-col justify-center text-primary-foreground">
+                <p className="text-xl font-medium leading-relaxed mb-4">
+                  "Care that feels natural, comfortable, and truly meaningful."
+                </p>
+                <p className="text-primary-foreground/80 text-sm">
+                  Our client-centered approach
+                </p>
+              </div>
+            </div>
+
+            {/* Description Card */}
+            <div className="lg:col-span-3 animate-on-scroll-right">
+              <div className="card-glass rounded-3xl p-8 h-full">
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  We take a client-centered approach, working closely with clients and families to 
+                  understand their unique needs, routines, preferences, and goals. Our PSW services 
+                  are dedicated to supporting individuals with dignity, respect, and personalized attention.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Values Row */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {values.map((value, index) => (
+              <div
+                key={index}
+                className={`animate-on-scroll animate-stagger-${index + 1}`}
+              >
+                <div className="card-glass rounded-2xl p-6 h-full hover-lift hover-glow group">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                      <value.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground mb-1">
+                        {value.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {value.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
