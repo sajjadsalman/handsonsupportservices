@@ -1,4 +1,6 @@
 import { Heart, Users, Brain, Home, Clock, Shield } from "lucide-react";
+import pswImage from "@/assets/psw-services.jpg";
+import otImage from "@/assets/occupational-therapy.jpg";
 
 const Services = () => {
   const pswServices = [
@@ -54,52 +56,76 @@ const Services = () => {
         {/* Services Grid */}
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* PSW Services Card */}
-          <div className="card-glass rounded-3xl p-8 md:p-10 hover-lift group">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                <Heart className="w-7 h-7 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-semibold text-foreground">PSW Services</h3>
-                <p className="text-muted-foreground text-sm">Personal Support Worker</p>
-              </div>
+          <div className="card-glass rounded-3xl overflow-hidden hover-lift group">
+            {/* Image */}
+            <div className="relative h-56 overflow-hidden">
+              <img 
+                src={pswImage} 
+                alt="Personal Support Worker assisting with mobility" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
             </div>
             
-            <div className="grid grid-cols-2 gap-3">
-              {pswServices.map((service, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary/60" />
-                  {service}
+            <div className="p-8 md:p-10">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                  <Heart className="w-7 h-7 text-primary" />
                 </div>
-              ))}
+                <div>
+                  <h3 className="text-2xl font-semibold text-foreground">PSW Services</h3>
+                  <p className="text-muted-foreground text-sm">Personal Support Worker</p>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-3">
+                {pswServices.map((service, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/60" />
+                    {service}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Occupational Therapy Card */}
-          <div className="card-glass rounded-3xl p-8 md:p-10 hover-lift group">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                <Brain className="w-7 h-7 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-semibold text-foreground">Occupational Therapy</h3>
-                <p className="text-muted-foreground text-sm">Rehabilitation & Assessment</p>
-              </div>
+          <div className="card-glass rounded-3xl overflow-hidden hover-lift group">
+            {/* Image */}
+            <div className="relative h-56 overflow-hidden">
+              <img 
+                src={otImage} 
+                alt="Occupational therapist working with patient" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
             </div>
             
-            <div className="grid grid-cols-1 gap-3">
-              {otServices.map((service, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary/60" />
-                  {service}
+            <div className="p-8 md:p-10">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                  <Brain className="w-7 h-7 text-primary" />
                 </div>
-              ))}
+                <div>
+                  <h3 className="text-2xl font-semibold text-foreground">Occupational Therapy</h3>
+                  <p className="text-muted-foreground text-sm">Rehabilitation & Assessment</p>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 gap-3">
+                {otServices.map((service, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/60" />
+                    {service}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
