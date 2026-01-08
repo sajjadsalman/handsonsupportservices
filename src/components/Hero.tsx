@@ -20,8 +20,8 @@ const Hero = () => {
           className="w-full h-full object-cover"
         />
         {/* Light overlay - reduced for more prominent background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/60 to-background/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
       </div>
       
       {/* Subtle Glow */}
