@@ -19,9 +19,9 @@ const Hero = () => {
           alt="Compassionate caregiver with patient" 
           className="w-full h-full object-cover"
         />
-        {/* Light overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
+        {/* Light overlay - reduced for more prominent background */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/60 to-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/20" />
       </div>
       
       {/* Subtle Glow */}
