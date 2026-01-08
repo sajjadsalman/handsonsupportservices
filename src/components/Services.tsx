@@ -3,8 +3,6 @@ import pswImage from "@/assets/psw-services.jpg";
 import otImage from "@/assets/occupational-therapy.jpg";
 import pswPackage from "@/assets/psw-package.jpg";
 import otPackage from "@/assets/ot-package.jpg";
-import advancedPackage from "@/assets/advanced-package.jpg";
-import advancedPlusPackage from "@/assets/advanced-plus-package.jpg";
 
 const Services = () => {
   const pswServices = [
@@ -41,8 +39,6 @@ const Services = () => {
   const packages = [
     { name: "PSW Services", image: pswPackage },
     { name: "Occupational Therapy Services", image: otPackage },
-    { name: "Advanced Service", image: advancedPackage },
-    { name: "Advanced+ Service", image: advancedPlusPackage },
   ];
 
   const scrollToContact = () => {
