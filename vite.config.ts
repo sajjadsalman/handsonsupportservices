@@ -4,8 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  // GitHub Pages serves this repo under /handsonsupportservices/
-  base: mode === "production" ? "/handsonsupportservices/" : "/",
+  base: "/",
   server: {
     host: "::",
     port: 8080,
